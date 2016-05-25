@@ -35,8 +35,12 @@ try {
 	$preclass=$list[0][1]*100+$list[0][2];
 	$count=0;
 	foreach ($list as $temp) {
-		if ( ($temp[0] == "")
-			|| ($setting["page"] == "class" && $preclass != $temp[1]*100+$temp[2])
+		if ($temp[0] == "") {
+			$index++;
+			$count=0;
+			continue;
+		}
+		if ( ($setting["page"] == "class" && $preclass != $temp[1]*100+$temp[2])
 			|| $count >= 10) {
 			$index++;
 			$count=0;
